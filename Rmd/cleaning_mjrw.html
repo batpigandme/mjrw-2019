@@ -455,11 +455,13 @@ mjrw_2019_420_champ %&gt;%
 <div id="putting-the-plan-into-action" class="section level2">
 <h2>Putting the plan into action</h2>
 <p>Because the order of the rows is important, I’m going to add a <code>rowid</code> variable with <a href="https://tibble.tidyverse.org/reference/rownames.html"><code>tibble::rowid_to_column()</code></a>. I like this because it automatically puts <code>rowid</code> as the first column.</p>
-<p>The <a href="https://tidyr.tidyverse.org/reference/fill.html"><code>tidyr::fill()</code></a> function is handy for, well, filling in data. I’m only going to use it on the <code>Position</code> column for now, since other missing values can help us sort through whether or not the <code>Boat Name/Club</code> is, well, a boat name or the name of a club.</p>
+<p>The <a href="https://tidyr.tidyverse.org/reference/fill.html"><code>tidyr::fill()</code></a> function is handy for, well, filling in data. I’m only going to use it on the <code>Position</code> and various results columns for now, since other missing values can help us sort through whether or not the <code>Boat Name/Club</code> is, well, a boat name or the name of a club.</p>
 <p>I’ll use <code>tidyr::fill()</code> with the <code>.direction</code> argument set to “down” (the default).</p>
 <pre class="r"><code>mjrw_420_champ &lt;- mjrw_2019_420_champ %&gt;%
+  fill(`Sail Number`, .direction = &quot;up&quot;) %&gt;%
   rowid_to_column() %&gt;%
-  fill(Position, .direction = &quot;down&quot;)
+  fill(Position, .direction = &quot;down&quot;) %&gt;%
+  fill(7:13, .direction = &quot;down&quot;)
 
 
 mjrw_420_champ %&gt;%
@@ -467,10 +469,10 @@ mjrw_420_champ %&gt;%
 <pre><code>## # A tibble: 4 x 13
 ##   rowid Class Position `Sail Number` `Sailor(s)` `Boat Name/Club` Points
 ##   &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;             &lt;dbl&gt;
-## 1     1 420 …        1 &lt;NA&gt;          Brooks Reed Hingham Yacht C…      8
-## 2     2 420 …        1 USA 871       Trent Hess… &lt;NA&gt;                 NA
-## 3     7 420 …        4 &lt;NA&gt;          Ian McCaff… Kiss My Transom      22
-## 4     8 420 …        4 USA 2296      Katy Benagh Sandy Bay Yacht…     NA
+## 1     1 420 …        1 USA 871       Brooks Reed Hingham Yacht C…      8
+## 2     2 420 …        1 USA 871       Trent Hess… &lt;NA&gt;                  8
+## 3     7 420 …        4 USA 2296      Ian McCaff… Kiss My Transom      22
+## 4     8 420 …        4 USA 2296      Katy Benagh Sandy Bay Yacht…     22
 ## # … with 6 more variables: R1 &lt;chr&gt;, R2 &lt;chr&gt;, R3 &lt;chr&gt;, R4 &lt;chr&gt;,
 ## #   R5 &lt;chr&gt;, R6 &lt;chr&gt;</code></pre>
 <p>To figure out this pesky boat-name business, I also want to add a variable that counts up the number of observations (sailors) per position (which is a proxy for boat, at this point).</p>
@@ -482,10 +484,10 @@ mjrw_420_champ %&gt;%
 ## # Groups:   Position [2]
 ##   rowid Class Position `Sail Number` `Sailor(s)` `Boat Name/Club` Points
 ##   &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;             &lt;dbl&gt;
-## 1     1 420 …        1 &lt;NA&gt;          Brooks Reed Hingham Yacht C…      8
-## 2     2 420 …        1 USA 871       Trent Hess… &lt;NA&gt;                 NA
-## 3     7 420 …        4 &lt;NA&gt;          Ian McCaff… Kiss My Transom      22
-## 4     8 420 …        4 USA 2296      Katy Benagh Sandy Bay Yacht…     NA
+## 1     1 420 …        1 USA 871       Brooks Reed Hingham Yacht C…      8
+## 2     2 420 …        1 USA 871       Trent Hess… &lt;NA&gt;                  8
+## 3     7 420 …        4 USA 2296      Ian McCaff… Kiss My Transom      22
+## 4     8 420 …        4 USA 2296      Katy Benagh Sandy Bay Yacht…     22
 ## # … with 7 more variables: R1 &lt;chr&gt;, R2 &lt;chr&gt;, R3 &lt;chr&gt;, R4 &lt;chr&gt;,
 ## #   R5 &lt;chr&gt;, R6 &lt;chr&gt;, sailor_count &lt;int&gt;</code></pre>
 <p>Now we can find the sailors who have their own boats by looking for second sailors (<code>sailor_count == 2</code>) for whom <code>Boat Name/Club</code> is <em>not</em> <code>NA</code>. When that’s the case, the value of <code>Boat Name/Club</code> for the <em>first</em> sailor is the name of a boat.</p>
@@ -499,7 +501,17 @@ mjrw_420_champ %&gt;%
   dplyr::mutate(sailor_count = dplyr::row_number()) %&gt;%
   ungroup()
 
-have_boats_clubs &lt;- mjrw_420_champ %&gt;%
+have_boats &lt;- mjrw_420_champ %&gt;%
+  fill(`Sail Number`, .direction = &quot;up&quot;) %&gt;%
+  filter(sailor_count == 2) %&gt;%
+  drop_na(`Boat Name/Club`)
+
+no_boats &lt;- mjrw_420_champ %&gt;%
+  filter(sailor_count == 2) %&gt;%
+  anti_join(have_boats) %&gt;% # get the ones we didn&#39;t drop
+  select(-`Boat Name/Club`) # get rid of this column bc all NA</code></pre>
+<pre><code>## Joining, by = c(&quot;rowid&quot;, &quot;Class&quot;, &quot;Position&quot;, &quot;Sail Number&quot;, &quot;Sailor(s)&quot;, &quot;Boat Name/Club&quot;, &quot;Points&quot;, &quot;R1&quot;, &quot;R2&quot;, &quot;R3&quot;, &quot;R4&quot;, &quot;R5&quot;, &quot;R6&quot;, &quot;sailor_count&quot;)</code></pre>
+<pre class="r"><code>have_boats_clubs &lt;- mjrw_420_champ %&gt;%
   filter(sailor_count == 2) %&gt;%
   drop_na(`Boat Name/Club`) %&gt;%
   rename(Club = `Boat Name/Club`)
@@ -508,16 +520,37 @@ have_boats_clubs</code></pre>
 <pre><code>## # A tibble: 4 x 14
 ##   rowid Class Position `Sail Number` `Sailor(s)` Club  Points R1    R2   
 ##   &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
-## 1     8 420 …        4 USA 2296      Katy Benagh Sand…     NA &lt;NA&gt;  &lt;NA&gt; 
-## 2    30 420 …       15 USA 7742      Calvin May  Agam…     NA &lt;NA&gt;  &lt;NA&gt; 
-## 3    34 420 …       17 USA 8720      Kate Rogers Hing…     NA &lt;NA&gt;  &lt;NA&gt; 
-## 4    56 420 …       28 USA 8488      Nora McCar… Cott…     NA &lt;NA&gt;  &lt;NA&gt; 
+## 1     8 420 …        4 USA 2296      Katy Benagh Sand…     22 3     8    
+## 2    30 420 …       15 USA 7742      Calvin May  Agam…     69 9     5    
+## 3    34 420 …       17 USA 8720      Kate Rogers Hing…     73 16    20   
+## 4    56 420 …       28 USA 8488      Nora McCar… Cott…    122 32    22   
 ## # … with 5 more variables: R3 &lt;chr&gt;, R4 &lt;chr&gt;, R5 &lt;chr&gt;, R6 &lt;chr&gt;,
 ## #   sailor_count &lt;int&gt;</code></pre>
 <p>OK, so we know which positions have boats. Let’s get the boat names. Again, we’ll rename our variable to fit the contents.</p>
+<pre class="r"><code>no_boats_clubs &lt;- mjrw_420_champ %&gt;%
+  filter(Position %in% no_boats$Position,
+         sailor_count == 1) %&gt;%
+  rename(Club = `Boat Name/Club`)
+
+no_boats_clubs</code></pre>
+<pre><code>## # A tibble: 34 x 14
+##    rowid Class Position `Sail Number` `Sailor(s)` Club  Points R1    R2   
+##    &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+##  1     1 420 …        1 USA 871       Brooks Reed Hing…      8 1     1    
+##  2     3 420 …        2 USA 8241      Sawyer Reed Hing…     20 2     3    
+##  3     5 420 …        3 USA 1905      James Know… Buck…     21 5     7    
+##  4     9 420 …        5 USA 6906      Sandy Yale  Port…     28 8     2    
+##  5    11 420 …        6 USA 10        Gunnar Nee  Coha…     28 4     4    
+##  6    13 420 …        7 USA 8497      Porter Bell Hing…     30 12    -13  
+##  7    15 420 …        8 USA 7273      Ben Trotsky Sand…     34 6     6    
+##  8    17 420 …        9 USA 8696      Nathan Sel… Harr…     44 11    14   
+##  9    19 420 …       10 USA 781       Ashley Hog… Pleo…     53 15    11   
+## 10    21 420 …       11 USA 6905      Samuel Roo… Port…     62 -29   16   
+## # … with 24 more rows, and 5 more variables: R3 &lt;chr&gt;, R4 &lt;chr&gt;, R5 &lt;chr&gt;,
+## #   R6 &lt;chr&gt;, sailor_count &lt;int&gt;</code></pre>
+<p>For the sailors in the first position who <em>don’t</em> have boats, the club name will be in their <code>Boat Name/Club</code> column already.</p>
 <pre class="r"><code>have_boats_names &lt;- mjrw_420_champ %&gt;%
-  fill(`Sail Number`, .direction = &quot;up&quot;) %&gt;%
-  filter(Position %in% have_boats_clubs$Position,
+  filter(Position %in% have_boats$Position,
          sailor_count == 1) %&gt;%
   rename(`Boat Name` = `Boat Name/Club`)
 
@@ -531,6 +564,49 @@ have_boats_names</code></pre>
 ## 4    55 420 …       28 USA 8488      Ella McCar… Fight Club     122 32   
 ## # … with 6 more variables: R2 &lt;chr&gt;, R3 &lt;chr&gt;, R4 &lt;chr&gt;, R5 &lt;chr&gt;,
 ## #   R6 &lt;chr&gt;, sailor_count &lt;int&gt;</code></pre>
+<p>We can now isolate this in a lookup table of sorts to make it possible to join club or boat name information by sail number.</p>
+<pre class="r"><code>info_by_sails &lt;- sails_clubs %&gt;%
+  left_join(sails_names)</code></pre>
+<pre><code>## Joining, by = c(&quot;Position&quot;, &quot;Sail Number&quot;)</code></pre>
+<pre class="r"><code>info_by_sails</code></pre>
+<pre><code>## # A tibble: 38 x 4
+##    Position `Sail Number` Club                     `Boat Name`    
+##       &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;                    &lt;chr&gt;          
+##  1        1 USA 871       Hingham Yacht Club       &lt;NA&gt;           
+##  2        2 USA 8241      Hingham Yacht Club       &lt;NA&gt;           
+##  3        3 USA 1905      Buck&#39;s Harbor Yacht Club &lt;NA&gt;           
+##  4        4 USA 2296      Sandy Bay Yacht Club     Kiss My Transom
+##  5        5 USA 6906      Portland Yacht Club      &lt;NA&gt;           
+##  6        6 USA 10        Cohasset Yacht Club      &lt;NA&gt;           
+##  7        7 USA 8497      Hingham Yacht Club       &lt;NA&gt;           
+##  8        8 USA 7273      Sandy Bay Yacht Club     &lt;NA&gt;           
+##  9        9 USA 8696      Harraseeket Yacht Club   &lt;NA&gt;           
+## 10       10 USA 781       Pleon YC                 &lt;NA&gt;           
+## # … with 28 more rows</code></pre>
+</div>
+<div id="did-it-work" class="section level2">
+<h2>Did it work?</h2>
+<p>Umm, let’s see. If all went according to plan, we should be able to join the <code>Boat Name</code> and <code>Club</code> to our modified data by <code>Position</code> and <code>Sail Number</code>.</p>
+<pre class="r"><code>mjrw_420_champ &lt;- mjrw_420_champ %&gt;%
+  left_join(info_by_sails) %&gt;%
+  rename(Sailor = `Sailor(s)`)</code></pre>
+<pre><code>## Joining, by = c(&quot;Position&quot;, &quot;Sail Number&quot;)</code></pre>
+<pre class="r"><code>mjrw_420_champ %&gt;%
+  select(Position, `Sail Number`, Sailor, Club, `Boat Name`,)</code></pre>
+<pre><code>## # A tibble: 76 x 5
+##    Position `Sail Number` Sailor         Club                `Boat Name`   
+##       &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;               &lt;chr&gt;         
+##  1        1 USA 871       Brooks Reed    Hingham Yacht Club  &lt;NA&gt;          
+##  2        1 USA 871       Trent Hesselm… Hingham Yacht Club  &lt;NA&gt;          
+##  3        2 USA 8241      Sawyer Reed    Hingham Yacht Club  &lt;NA&gt;          
+##  4        2 USA 8241      Andrew Engel   Hingham Yacht Club  &lt;NA&gt;          
+##  5        3 USA 1905      James Knowlton Buck&#39;s Harbor Yach… &lt;NA&gt;          
+##  6        3 USA 1905      Sloan Phillips Buck&#39;s Harbor Yach… &lt;NA&gt;          
+##  7        4 USA 2296      Ian McCaffrey  Sandy Bay Yacht Cl… Kiss My Trans…
+##  8        4 USA 2296      Katy Benagh    Sandy Bay Yacht Cl… Kiss My Trans…
+##  9        5 USA 6906      Sandy Yale     Portland Yacht Club &lt;NA&gt;          
+## 10        5 USA 6906      Elsa Dean-Mun… Portland Yacht Club &lt;NA&gt;          
+## # … with 66 more rows</code></pre>
 </div>
 <div class="footnotes">
 <hr />

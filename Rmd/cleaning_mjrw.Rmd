@@ -82,14 +82,16 @@ This also means that the "directions" for filling the data depend on whether or 
 
 Because the order of the rows is important, I'm going to add a `rowid` variable with [`tibble::rowid_to_column()`](https://tibble.tidyverse.org/reference/rownames.html). I like this because it automatically puts `rowid` as the first column.
 
-The [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) function is handy for, well, filling in data. I'm only going to use it on the `Position` column for now, since other missing values can help us sort through whether or not the `Boat Name/Club` is, well, a boat name or the name of a club.
+The [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) function is handy for, well, filling in data. I'm only going to use it on the `Position` and various results columns for now, since other missing values can help us sort through whether or not the `Boat Name/Club` is, well, a boat name or the name of a club.
 
 I'll use `tidyr::fill()` with the `.direction` argument set to "down" (the default).
 
 ```{r}
 mjrw_420_champ <- mjrw_2019_420_champ %>%
+  fill(`Sail Number`, .direction = "up") %>%
   rowid_to_column() %>%
-  fill(Position, .direction = "down")
+  fill(Position, .direction = "down") %>%
+  fill(7:13, .direction = "down")
 
 
 mjrw_420_champ %>%
@@ -117,6 +119,16 @@ mjrw_420_champ <- mjrw_420_champ %>%
   dplyr::mutate(sailor_count = dplyr::row_number()) %>%
   ungroup()
 
+have_boats <- mjrw_420_champ %>%
+  fill(`Sail Number`, .direction = "up") %>%
+  filter(sailor_count == 2) %>%
+  drop_na(`Boat Name/Club`)
+
+no_boats <- mjrw_420_champ %>%
+  filter(sailor_count == 2) %>%
+  anti_join(have_boats) %>% # get the ones we didn't drop
+  select(-`Boat Name/Club`) # get rid of this column bc all NA
+
 have_boats_clubs <- mjrw_420_champ %>%
   filter(sailor_count == 2) %>%
   drop_na(`Boat Name/Club`) %>%
@@ -125,17 +137,64 @@ have_boats_clubs <- mjrw_420_champ %>%
 have_boats_clubs
 ```
 
+
 OK, so we know which positions have boats. Let's get the boat names. Again, we'll rename our variable to fit the contents.
 
 ```{r}
+no_boats_clubs <- mjrw_420_champ %>%
+  filter(Position %in% no_boats$Position,
+         sailor_count == 1) %>%
+  rename(Club = `Boat Name/Club`)
+
+no_boats_clubs
+```
+
+```{r include=FALSE}
+sails_clubs <- have_boats_clubs %>%
+  bind_rows(no_boats_clubs) %>%
+  select(Position, `Sail Number`, Club) %>%
+  arrange(Position)
+```
+
+For the sailors in the first position who _don't_ have boats, the club name will be in their `Boat Name/Club` column already.
+
+```{r}
 have_boats_names <- mjrw_420_champ %>%
-  fill(`Sail Number`, .direction = "up") %>%
-  filter(Position %in% have_boats_clubs$Position,
+  filter(Position %in% have_boats$Position,
          sailor_count == 1) %>%
   rename(`Boat Name` = `Boat Name/Club`)
 
 have_boats_names
 ```
+
+
+```{r include=FALSE}
+sails_names <- have_boats_names %>%
+  select(Position, `Sail Number`, `Boat Name`)
+```
+
+We can now isolate this in a lookup table of sorts to make it possible to join club or boat name information by sail number.
+
+```{r}
+info_by_sails <- sails_clubs %>%
+  left_join(sails_names)
+
+info_by_sails
+```
+
+## Did it work?
+
+Umm, let's see. If all went according to plan, we should be able to join the `Boat Name` and `Club` to our modified data by `Position` and `Sail Number`.
+
+```{r}
+mjrw_420_champ <- mjrw_420_champ %>%
+  left_join(info_by_sails) %>%
+  rename(Sailor = `Sailor(s)`)
+
+mjrw_420_champ %>%
+  select(Position, `Sail Number`, Sailor, Club, `Boat Name`,)
+```
+
 
 
 [^1]: Yes, it turns out there _are_ actually two records that have `NA` for `Sailor(s)`, which is weird, bc I'm pretty sure this was a two-handed race.
