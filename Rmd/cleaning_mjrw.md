@@ -345,5 +345,9 @@ mjrw_420_champ %>%
 ```
 
 
+```r
+write_csv(mjrw_420_champ, here::here("data", "clean", "420_champ.csv"))
+```
+
 
 [^1]: Yes, it turns out there _are_ actually two records that have `NA` for `Sailor(s)`, which is weird, bc I'm pretty sure this was a two-handed race.
