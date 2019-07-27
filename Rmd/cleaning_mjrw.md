@@ -24,7 +24,7 @@ library(here)
 
 ## Import and inspect
 
-Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I'll deal with them one by one.
+Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I'll have to deal with them one by one. However, I'll try to use strategies that are generalizable to the other datasets.
 
 
 ```r
@@ -367,6 +367,99 @@ clean_mjrw_420_champ
 write_csv(clean_mjrw_420_champ, here::here("data", "clean", "420_champ.csv"))
 ```
 
+## Other datasets?
+
+Oh yeah, those... It's probably time to consider some function writing and refactoring. Here's the copy pasta involved with just "redoing" everything from above, and it is not pretty.
+
+
+```r
+mjrw_2019_420_green <- read_csv(here::here("data", "raw", "mjrw_2019_420_green.csv"), 
+                                col_types = cols(Position = col_integer()))
+
+mjrw_2019_420_green %>%
+  select(1:`Boat Name/Club`) %>%
+  colnames() -> specialcols
+```
+
+
+```r
+mjrw_420_green <- mjrw_2019_420_green %>%
+  rowid_to_column() %>%
+  fill(`Sail Number`, .direction = "up") %>%
+  fill(Position, .direction = "down") %>%
+  fill(-one_of(specialcols), .direction = "down") %>%
+  dplyr::group_by(`Sail Number`) %>%
+  dplyr::mutate(sailor_count = dplyr::row_number()) %>%
+  ungroup()
+```
+
+
+```r
+have_boats <- mjrw_420_green %>%
+  filter(sailor_count == 2) %>%
+  drop_na(`Boat Name/Club`)
+
+no_boats <- mjrw_420_green %>%
+  filter(sailor_count == 2) %>%
+  anti_join(have_boats) %>% # get the ones we didn't drop
+  select(-`Boat Name/Club`) # get rid of this column bc all NA
+```
+
+```
+## Joining, by = c("rowid", "Class", "Position", "Sail Number", "Sailor(s)", "Boat Name/Club", "Points", "R1", "R2", "R3", "R4", "R5", "sailor_count")
+```
+
+```r
+have_boats_clubs <- mjrw_420_green %>%
+  filter(sailor_count == 2) %>%
+  drop_na(`Boat Name/Club`) %>%
+  rename(Club = `Boat Name/Club`)
+
+no_boats_clubs <- mjrw_420_green %>%
+  filter(Position %in% no_boats$Position,
+         sailor_count == 1) %>%
+  rename(Club = `Boat Name/Club`)
+```
+
+
+```r
+sails_clubs <- have_boats_clubs %>%
+  bind_rows(no_boats_clubs) %>%
+  select(Position, `Sail Number`, Club) %>%
+  arrange(Position)
+
+sails_names <- mjrw_420_green %>%
+  filter(Position %in% have_boats$Position,
+         sailor_count == 1) %>%
+  rename(`Boat Name` = `Boat Name/Club`) %>%
+  select(Position, `Sail Number`, `Boat Name`)
+
+info_by_sails <- sails_clubs %>%
+  left_join(sails_names)
+```
+
+```
+## Joining, by = c("Position", "Sail Number")
+```
+
+
+```r
+clean_mjrw_420_green <- mjrw_420_green %>%
+  left_join(info_by_sails) %>%
+  select(-`Boat Name/Club`) %>%
+  rename(Sailor = `Sailor(s)`) %>%
+  select(1:Sailor, `Boat Name`, Club, everything())
+```
+
+```
+## Joining, by = c("Position", "Sail Number")
+```
+
+
+
+```r
+write_csv(clean_mjrw_420_green, here::here("data", "clean", "420_green.csv"))
+```
 
 [^1]: Yes, it turns out there _are_ actually two records that have `NA` for `Sailor(s)`, which is weird, bc I'm pretty sure this was a two-handed race.
 [^2]: Note, it is not the name of their club. That data is with the first sailor in cases where there is no boat name.

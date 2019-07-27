@@ -380,7 +380,7 @@ library(here)</code></pre>
 </div>
 <div id="import-and-inspect" class="section level2">
 <h2>Import and inspect</h2>
-<p>Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I’ll deal with them one by one.</p>
+<p>Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I’ll have to deal with them one by one. However, I’ll try to use strategies that are generalizable to the other datasets.</p>
 <pre class="r"><code>mjrw_2019_420_champ &lt;- read_csv(here::here(&quot;data&quot;, &quot;raw&quot;, &quot;mjrw_2019_420_champ.csv&quot;), 
     col_types = cols(Position = col_integer()))
 
@@ -616,6 +616,63 @@ sails_names</code></pre>
 ## #   R5 &lt;chr&gt;, R6 &lt;chr&gt;, sailor_count &lt;int&gt;</code></pre>
 <pre class="r"><code>write_csv(clean_mjrw_420_champ, here::here(&quot;data&quot;, &quot;clean&quot;, &quot;420_champ.csv&quot;))</code></pre>
 </div>
+</div>
+<div id="other-datasets" class="section level2">
+<h2>Other datasets?</h2>
+<p>Oh yeah, those… It’s probably time to consider some function writing and refactoring. Here’s the copy pasta involved with just “redoing” everything from above, and it is not pretty.</p>
+<pre class="r"><code>mjrw_2019_420_green &lt;- read_csv(here::here(&quot;data&quot;, &quot;raw&quot;, &quot;mjrw_2019_420_green.csv&quot;), 
+                                col_types = cols(Position = col_integer()))
+
+mjrw_2019_420_green %&gt;%
+  select(1:`Boat Name/Club`) %&gt;%
+  colnames() -&gt; specialcols</code></pre>
+<pre class="r"><code>mjrw_420_green &lt;- mjrw_2019_420_green %&gt;%
+  rowid_to_column() %&gt;%
+  fill(`Sail Number`, .direction = &quot;up&quot;) %&gt;%
+  fill(Position, .direction = &quot;down&quot;) %&gt;%
+  fill(-one_of(specialcols), .direction = &quot;down&quot;) %&gt;%
+  dplyr::group_by(`Sail Number`) %&gt;%
+  dplyr::mutate(sailor_count = dplyr::row_number()) %&gt;%
+  ungroup()</code></pre>
+<pre class="r"><code>have_boats &lt;- mjrw_420_green %&gt;%
+  filter(sailor_count == 2) %&gt;%
+  drop_na(`Boat Name/Club`)
+
+no_boats &lt;- mjrw_420_green %&gt;%
+  filter(sailor_count == 2) %&gt;%
+  anti_join(have_boats) %&gt;% # get the ones we didn&#39;t drop
+  select(-`Boat Name/Club`) # get rid of this column bc all NA</code></pre>
+<pre><code>## Joining, by = c(&quot;rowid&quot;, &quot;Class&quot;, &quot;Position&quot;, &quot;Sail Number&quot;, &quot;Sailor(s)&quot;, &quot;Boat Name/Club&quot;, &quot;Points&quot;, &quot;R1&quot;, &quot;R2&quot;, &quot;R3&quot;, &quot;R4&quot;, &quot;R5&quot;, &quot;sailor_count&quot;)</code></pre>
+<pre class="r"><code>have_boats_clubs &lt;- mjrw_420_green %&gt;%
+  filter(sailor_count == 2) %&gt;%
+  drop_na(`Boat Name/Club`) %&gt;%
+  rename(Club = `Boat Name/Club`)
+
+no_boats_clubs &lt;- mjrw_420_green %&gt;%
+  filter(Position %in% no_boats$Position,
+         sailor_count == 1) %&gt;%
+  rename(Club = `Boat Name/Club`)</code></pre>
+<pre class="r"><code>sails_clubs &lt;- have_boats_clubs %&gt;%
+  bind_rows(no_boats_clubs) %&gt;%
+  select(Position, `Sail Number`, Club) %&gt;%
+  arrange(Position)
+
+sails_names &lt;- mjrw_420_green %&gt;%
+  filter(Position %in% have_boats$Position,
+         sailor_count == 1) %&gt;%
+  rename(`Boat Name` = `Boat Name/Club`) %&gt;%
+  select(Position, `Sail Number`, `Boat Name`)
+
+info_by_sails &lt;- sails_clubs %&gt;%
+  left_join(sails_names)</code></pre>
+<pre><code>## Joining, by = c(&quot;Position&quot;, &quot;Sail Number&quot;)</code></pre>
+<pre class="r"><code>clean_mjrw_420_green &lt;- mjrw_420_green %&gt;%
+  left_join(info_by_sails) %&gt;%
+  select(-`Boat Name/Club`) %&gt;%
+  rename(Sailor = `Sailor(s)`) %&gt;%
+  select(1:Sailor, `Boat Name`, Club, everything())</code></pre>
+<pre><code>## Joining, by = c(&quot;Position&quot;, &quot;Sail Number&quot;)</code></pre>
+<pre class="r"><code>write_csv(clean_mjrw_420_green, here::here(&quot;data&quot;, &quot;clean&quot;, &quot;420_green.csv&quot;))</code></pre>
 </div>
 <div class="footnotes">
 <hr />
