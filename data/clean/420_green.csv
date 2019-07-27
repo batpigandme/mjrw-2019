@@ -1,0 +1,71 @@
+rowid,Class,Position,Sail Number,Sailor,Boat Name,Club,Points,R1,R2,R3,R4,R5,sailor_count
+1,420 Green,1,USA 1247,Max Westhoven,NA,Pleon,24,2,5,6,5,6,1
+2,420 Green,1,USA 1247,Ryan Begin,NA,Pleon,24,2,5,6,5,6,2
+3,420 Green,2,USA 8767,Charlie Wilkinson,NA,MSA,25,11,4,8,1,1,1
+4,420 Green,2,USA 8767,Sam Porter,NA,MSA,25,11,4,8,1,1,2
+5,420 Green,3,USA 8244,Fish Winslow,NA,Hingham Yacht Club,25,6,6,2,8,3,1
+6,420 Green,3,USA 8244,Catherine Dickson,NA,Hingham Yacht Club,25,6,6,2,8,3,2
+7,420 Green,4,USA 8240,Will Denker,NA,Hingham Yacht Club,26,3,1,4,2,16,1
+8,420 Green,4,USA 8240,Wilson Fox,NA,Hingham Yacht Club,26,3,1,4,2,16,2
+9,420 Green,5,USA 8243,William Sichol,NA,Hingham Yacht Club,31,4,7,7,3,10,1
+10,420 Green,5,USA 8243,Charlie Matthews,NA,Hingham Yacht Club,31,4,7,7,3,10,2
+11,420 Green,6,USA 8238,Griffin Beaulieu,NA,Hingham Yacht Club,32,5,9,3,10,5,1
+12,420 Green,6,USA 8238,Sam Schuhwerk,NA,Hingham Yacht Club,32,5,9,3,10,5,2
+13,420 Green,7,USA 1729,Ben Prew,NA,Cottage Park Yacht Club,39,8,10,5,9,7,1
+14,420 Green,7,USA 1729,Jake Cataldo,NA,Cottage Park Yacht Club,39,8,10,5,9,7,2
+15,420 Green,8,USA 7126,Eloise Goedkoop,NA,Pleon,44,9,2,10,12,11,1
+16,420 Green,8,USA 7126,Sophia Ianchulev,NA,Pleon,44,9,2,10,12,11,2
+17,420 Green,9,USA 6370,Sean McCaffrey,NA,Sandy Bay YC,47,1,3,1,6,DSQ-36,1
+18,420 Green,9,USA 6370,Nils Triplett,NA,Sandy Bay YC,47,1,3,1,6,DSQ-36,2
+19,420 Green,10,USA 6621,Aidan Eager,NA,Pleon,53,10,12,9,4,18,1
+20,420 Green,10,USA 6621,Clive Connolly,NA,Pleon,53,10,12,9,4,18,2
+21,420 Green,11,USA 12,Anne C. Krieger,NA,Cohasset Yacht Club,56,14,14,12,14,2,1
+22,420 Green,11,USA 12,Isabella Richter,NA,Cohasset Yacht Club,56,14,14,12,14,2,2
+23,420 Green,12,USA 6,Patrick Smith,NA,Sail Salem,56,7,13,17,11,8,1
+24,420 Green,12,USA 6,Victoria Thompson,NA,Sail Salem,56,7,13,17,11,8,2
+25,420 Green,13,USA 8768,Ava Rizzico,NA,MSA,64,12,21,15,7,9,1
+26,420 Green,13,USA 8768,Mark Matook,NA,MSA,64,12,21,15,7,9,2
+27,420 Green,14,USA 1738,Noah Cafferky,NA,MBC,75,13,18,14,15,15,1
+28,420 Green,14,USA 1738,Nektar Eforo,NA,MBC,75,13,18,14,15,15,2
+29,420 Green,15,USA 5,Anna Arbo,NA,Sail Salem,83,19,17,16,19,12,1
+30,420 Green,15,USA 5,Riley Linden,NA,Sail Salem,83,19,17,16,19,12,2
+31,420 Green,16,USA 6117,Catherine Peterman,NA,Sandy Bay Yacht Club,86,17,11,13,26,19,1
+32,420 Green,16,USA 6117,Katherine Rosa,NA,Sandy Bay Yacht Club,86,17,11,13,26,19,2
+33,420 Green,17,USA 839,Luc Francis,NA,SailMaine,87,24,8,25,13,17,1
+34,420 Green,17,USA 839,Jack McCormick,NA,SailMaine,87,24,8,25,13,17,2
+35,420 Green,18,USA 6373,Natalie Ho,NA,SBYC,98,23,19,11,24,21,1
+36,420 Green,18,USA 6373,Griffin Davis,NA,SBYC,98,23,19,11,24,21,2
+37,420 Green,19,USA 6458,Oliver Murrell,NA,SailMaine,102,OCS-36,24,21,17,4,1
+38,420 Green,19,USA 6458,Landen Springer,NA,SailMaine,102,OCS-36,24,21,17,4,2
+39,420 Green,20,USA 6371,Aidan Woods,SBYC,SBYC,107,27,28,23,16,13,1
+40,420 Green,20,USA 6371,Zachary Vianna,SBYC,SBYC,107,27,28,23,16,13,2
+41,420 Green,21,USA 1142,Owen Manning,NA,Medford Boat Club,110,20,23,20,25,22,1
+42,420 Green,21,USA 1142,Owen Kelly,NA,Medford Boat Club,110,20,23,20,25,22,2
+43,420 Green,22,USA 9664,John Betz,NA,Ipswich Junior Sailing,112,18,25,28,18,23,1
+44,420 Green,22,USA 9664,Alexander Cotter,NA,Ipswich Junior Sailing,112,18,25,28,18,23,2
+45,420 Green,23,USA 10,Nikolas Turpin,NA,Sail Salem,113,30,27,22,20,14,1
+46,420 Green,23,USA 10,Ronan Eaton,NA,Sail Salem,113,30,27,22,20,14,2
+47,420 Green,24,USA 1115,Chase Hansen,420,Cohasset Yacht Club,115,21,16,19,23,TLE-36,1
+48,420 Green,24,USA 1115,Patrick Keane,420,Cohasset Yacht Club,115,21,16,19,23,TLE-36,2
+49,420 Green,25,USA 1249,Janie Tompkins,Mona,Pleon,124,22,15,24,27,RET-36,1
+50,420 Green,25,USA 1249,Maya Tavares,Mona,Pleon,124,22,15,24,27,RET-36,2
+51,420 Green,26,USA 16,Andrew D. Masher,NA,Ipswich Junior Sailing,131,16,22,26,31,TLE-36,1
+52,420 Green,26,USA 16,Charlie Carner,NA,Ipswich Junior Sailing,131,16,22,26,31,TLE-36,2
+53,420 Green,27,USA 101,Will Moroney,Joelle Moroney,Ipswich Bay Yacht Club,140,28,DNS-36,18,22,TLE-36,1
+54,420 Green,27,USA 101,Jack Pearlson,Joelle Moroney,Ipswich Bay Yacht Club,140,28,DNS-36,18,22,TLE-36,2
+55,420 Green,28,USA 3,Cosimo Bardini,NA,Sail Salem,141,32,29,31,29,20,1
+56,420 Green,28,USA 3,Braiden Kilroy,NA,Sail Salem,141,32,29,31,29,20,2
+57,420 Green,29,USA 108,Anthony Stephens,NA,Ipswich Junior Sailing,143,15,20,DNF-36,RET-36,TLE-36,1
+58,420 Green,29,USA 108,Gian Perullo,NA,Ipswich Junior Sailing,143,15,20,DNF-36,RET-36,TLE-36,2
+59,420 Green,30,USA 3356,William Hodges,NA,Nahant Sailing Program,145,25,26,30,28,RET-36,1
+60,420 Green,30,USA 3356,Michael O'Brien,NA,Nahant Sailing Program,145,25,26,30,28,RET-36,2
+61,420 Green,31,USA 3444,Aidan Wyse,NA,Nahant Sailing Program,152,29,30,27,30,TLE-36,1
+62,420 Green,31,USA 3444,Peter Glavas,NA,Nahant Sailing Program,152,29,30,27,30,TLE-36,2
+63,420 Green,32,USA 6367,Piper Englin,NA,SBYC,163,31,31,29,RET-36,DNS-36,1
+64,420 Green,32,USA 6367,Charlotte Epstein,NA,SBYC,163,31,31,29,RET-36,DNS-36,2
+65,420 Green,33,USA 3354,Torin Anderson,Holy Sheet,Nahant sailing program,166,26,32,DNC-36,DNC-36,TLE-36,1
+66,420 Green,33,USA 3354,Greg Keane,Holy Sheet,Nahant sailing program,166,26,32,DNC-36,DNC-36,TLE-36,2
+67,420 Green,34,USA 12,Oliver Murrell,NA,NA,180,DNC-36,DNC-36,DNC-36,DNC-36,DNC-36,3
+68,420 Green,34,USA 12,NA,NA,NA,180,DNC-36,DNC-36,DNC-36,DNC-36,DNC-36,4
+69,420 Green,35,USA 000,Charlie Carner,NA,Ipswich Junior Sail,180,DNC-36,DNC-36,DNC-36,DNC-36,DNC-36,1
+70,420 Green,35,USA 000,NA,NA,Ipswich Junior Sail,180,DNC-36,DNC-36,DNC-36,DNC-36,DNC-36,2

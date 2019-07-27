@@ -1,0 +1,41 @@
+rowid,Class,Position,Sail Number,Sailor,Boat Name,Club,Division,Points,R1,R2,R3,R4,R5,R6,R7,sailor_count
+1,Laser,1,USA 189769,Niall Kearney,Ed,Eastern Yacht Club,Smythe Qualifier,10,1,-6,1,1,3,1,3,1
+2,Laser,1,USA 189769,NA,Ed,Eastern Yacht Club,NA,10,1,-6,1,1,3,1,3,2
+3,Laser,2,USA 207217,Charlie Morris,NA,Hingham Yacht Club,NA,22,2,1,6,(DSQ-21),4,5,4,1
+4,Laser,2,USA 207217,NA,NA,Hingham Yacht Club,NA,22,2,1,6,(DSQ-21),4,5,4,2
+5,Laser,3,USA 151746,Jacob Macdonald,NA,Mendums Seacoast Sailing Team,Smythe Qualifier,23,3,7,5,-10,1,6,1,1
+6,Laser,3,USA 151746,NA,NA,Mendums Seacoast Sailing Team,NA,23,3,7,5,-10,1,6,1,2
+7,Laser,4,USA 189722,Morgan Cheney,NA,PLEON,Smythe Qualifier,25,6,4,3,3,6,3,-7,1
+8,Laser,4,USA 189722,NA,NA,PLEON,NA,25,6,4,3,3,6,3,-7,2
+9,Laser,5,USA 183904,Charles Anderson,Charlie's Craft,Pleon Yacht Club,Smythe Qualifier,26,5,3,4,5,5,4,-9,1
+10,Laser,5,USA 183904,NA,Charlie's Craft,Pleon Yacht Club,NA,26,5,3,4,5,5,4,-9,2
+11,Laser,6,USA 176139,Mason Cheney,NA,PLEON,Smythe Qualifier,30,4,5,2,-8,7,7,5,1
+12,Laser,6,USA 176139,NA,NA,PLEON,NA,30,4,5,2,-8,7,7,5,2
+13,Laser,7,USA 179455,Felix Zeller,NA,BCRP,NA,40,7,13,7,9,2,2,-14,1
+14,Laser,7,USA 179455,NA,NA,BCRP,NA,40,7,13,7,9,2,2,-14,2
+15,Laser,8,USA 188844,Cole Amaral,NA,BCRP,Smythe Qualifier,45,8,2,10,6,8,-13,11,1
+16,Laser,8,USA 188844,NA,NA,BCRP,NA,45,8,2,10,6,8,-13,11,2
+17,Laser,9,USA 196272,Harper Cartwright,NA,Northern Lake George Yacht Club,Smythe Qualifier,55,-13,10,12,2,10,8,13,1
+18,Laser,9,USA 196272,NA,NA,Northern Lake George Yacht Club,NA,55,-13,10,12,2,10,8,13,2
+19,Laser,10,USA 177380,George Huffman,NA,Northern Lake George Yacht Club,Smythe Qualifier,58,10,11,9,4,-18,9,15,1
+20,Laser,10,USA 177380,NA,NA,Northern Lake George Yacht Club,NA,58,10,11,9,4,-18,9,15,2
+21,Laser,11,USA 174243,Anna LaDue,NA,Mendums Seacoast Sailing,Smythe Qualifier,59,12,9,11,-14,9,10,8,1
+22,Laser,11,USA 174243,NA,NA,Mendums Seacoast Sailing,NA,59,12,9,11,-14,9,10,8,2
+23,Laser,12,USA 172915,Nikki Buhac,NA,Northern Lake George Yacht Club,Smythe Qualifier,62,-16,8,15,7,16,14,2,1
+24,Laser,12,USA 172915,NA,NA,Northern Lake George Yacht Club,NA,62,-16,8,15,7,16,14,2,2
+25,Laser,13,USA 190464,Willem Weinberg,NA,Sail Newport,NA,65,9,-14,8,12,12,12,12,1
+26,Laser,13,USA 190464,NA,NA,Sail Newport,NA,65,9,-14,8,12,12,12,12,2
+27,Laser,14,USA 154443,Leo terry,NA,Castine yacht club,NA,66,-14,12,13,13,11,11,6,1
+28,Laser,14,USA 154443,NA,NA,Castine yacht club,NA,66,-14,12,13,13,11,11,6,2
+29,Laser,15,USA 191525,Maeve Harrington,NA,Sail Newport,NA,82,15,-17,17,11,13,16,10,1
+30,Laser,15,USA 191525,NA,NA,Sail Newport,NA,82,15,-17,17,11,13,16,10,2
+31,Laser,16,USA 190433,Molly Heilshorn,NA,SailMaine,NA,86,11,-16,14,15,15,15,16,1
+32,Laser,16,USA 190433,NA,NA,SailMaine,NA,86,11,-16,14,15,15,15,16,2
+33,Laser,17,USA 17,James E Sullivan III,NA,Mendum Seacoast Sailing,Smythe Qualifier,96,17,15,-18,16,14,17,17,1
+34,Laser,17,USA 17,NA,NA,Mendum Seacoast Sailing,NA,96,17,15,-18,16,14,17,17,2
+35,Laser,18,USA 151738,Jillian Carr,NA,Agamenticus Yacht Club,NA,107,-19,19,16,18,17,19,18,1
+36,Laser,18,USA 151738,NA,NA,Agamenticus Yacht Club,NA,107,-19,19,16,18,17,19,18,2
+37,Laser,19,USA 176222,Lachlan Hartshorn,NA,Pleon,NA,111,18,18,19,17,(OCS-21),18,OCS-21,1
+38,Laser,19,USA 176222,NA,NA,Pleon,NA,111,18,18,19,17,(OCS-21),18,OCS-21,2
+39,Laser,20,USA 94,Terry Fitz-Gerald,PYC 5,Pleon,NA,117,20,(DNS-21),20,19,19,20,19,1
+40,Laser,20,USA 94,NA,PYC 5,Pleon,NA,117,20,(DNS-21),20,19,19,20,19,2
