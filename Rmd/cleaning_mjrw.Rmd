@@ -25,7 +25,7 @@ library(here)
 
 ## Import and inspect
 
-Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I'll deal with them one by one.
+Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I'll have to deal with them one by one. However, I'll try to use strategies that are generalizable to the other datasets.
 
 ```{r}
 mjrw_2019_420_champ <- read_csv(here::here("data", "raw", "mjrw_2019_420_champ.csv"), 
@@ -82,27 +82,39 @@ This also means that the "directions" for filling the data depend on whether or 
 
 Because the order of the rows is important, I'm going to add a `rowid` variable with [`tibble::rowid_to_column()`](https://tibble.tidyverse.org/reference/rownames.html). I like this because it automatically puts `rowid` as the first column.
 
-The [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) function is handy for, well, filling in data. I'm only going to use it on the `Position` and various results columns for now, since other missing values can help us sort through whether or not the `Boat Name/Club` is, well, a boat name or the name of a club.
+The [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) function is handy for, well, filling in data. There were two columns in the mockups above that filled in the same direction regardless of whether or not there was a boat name: `Position`, and `Sail Number`. The `Points` and other scoring columns (not shown in the data model) work the same way as `Position` -- i.e. should fill _down_, regardless of whether `Boat Name/Club` is a boat name or a club name.
 
-I'll use `tidyr::fill()` with the `.direction` argument set to "down" (the default).
+I'll reference "the rest of those columns" by creating a collection of the variables we looked at. I'll use tidyselect to grab "the first column through `Boat Name/Club`", and then get the column names using `colnames()`. 
+
+```{r}
+mjrw_2019_420_champ %>%
+  select(1:`Boat Name/Club`) %>%
+  colnames() -> specialcols
+
+specialcols
+```
+
+<!-- I'm only going to use it on the `Position` and various results columns for now, since other missing values can help us sort through whether or not the `Boat Name/Club` is, well, a boat name or the name of a club. -->
+
+In `tidyr::fill()`, the default for the `.direction` argument is `"down"`. So I _must_ specify that the fill `.direction` for `Sail Number` should be `"up"`, but I'll provide an argument to `.direction` in all cases for clarity. 
 
 ```{r}
 mjrw_420_champ <- mjrw_2019_420_champ %>%
-  fill(`Sail Number`, .direction = "up") %>%
   rowid_to_column() %>%
+  fill(`Sail Number`, .direction = "up") %>%
   fill(Position, .direction = "down") %>%
-  fill(7:13, .direction = "down")
+  fill(-one_of(specialcols), .direction = "down") # fill down the rest
 
 
 mjrw_420_champ %>%
   filter(`Sailor(s)` %in% select_sailors)
 ```
 
-To figure out this pesky boat-name business, I also want to add a variable that counts up the number of observations (sailors) per position (which is a proxy for boat, at this point).
+To figure out this pesky boat-name business, I also want to add a variable that counts up the number of if this is the first or second observation per boat (we can use `Sail Number` or `Position` as a proxy for this). I'm filtering to `select_sailors` to make it a bit easier to see how it relates to the data model.
 
 ```{r}
 mjrw_420_champ %>%
-  dplyr::group_by(Position) %>%
+  dplyr::group_by(`Sail Number`) %>%
   dplyr::mutate(sailor_count = dplyr::row_number()) %>%
   filter(`Sailor(s)` %in% select_sailors)
 ```
@@ -111,16 +123,17 @@ Now we can find the sailors who have their own boats by looking for second sailo
 
 ![Non-`NA` values boat name or club](https://i.imgur.com/GQvVaG1.png)
 
-Since all of the values for `Boat Names/Club` here will be the name of a club, we'll rename the variable.
+I'm creating two groups of "second sailors" (`sailor_count == 2`): those with boats, and those without (i.e. those for whom `Boat Name/Club` is `NA`). For all second sailors with boats, the value for `Boat Names/Club` will be the name of a club. So, we'll rename the variable `Club`. For those _without_ boats it is be definition `NA`, so we'll drop the column.[^2]
 
 ```{r}
 mjrw_420_champ <- mjrw_420_champ %>%
-  dplyr::group_by(Position) %>%
+  dplyr::group_by(`Sail Number`) %>%
   dplyr::mutate(sailor_count = dplyr::row_number()) %>%
   ungroup()
+```
 
+```{r}
 have_boats <- mjrw_420_champ %>%
-  fill(`Sail Number`, .direction = "up") %>%
   filter(sailor_count == 2) %>%
   drop_na(`Boat Name/Club`)
 
@@ -137,8 +150,7 @@ have_boats_clubs <- mjrw_420_champ %>%
 have_boats_clubs
 ```
 
-
-OK, so we know which positions have boats. Let's get the boat names. Again, we'll rename our variable to fit the contents.
+The names of the home club for groups without a boat is with their _first_ sailor (`sailor_count == 1`):
 
 ```{r}
 no_boats_clubs <- mjrw_420_champ %>%
@@ -149,6 +161,7 @@ no_boats_clubs <- mjrw_420_champ %>%
 no_boats_clubs
 ```
 
+
 ```{r include=FALSE}
 sails_clubs <- have_boats_clubs %>%
   bind_rows(no_boats_clubs) %>%
@@ -156,24 +169,19 @@ sails_clubs <- have_boats_clubs %>%
   arrange(Position)
 ```
 
-For the sailors in the first position who _don't_ have boats, the club name will be in their `Boat Name/Club` column already.
+OK, so we know which positions have boats. Let's get the boat names. Again, we'll rename our variable to fit the contents.
 
 ```{r}
-have_boats_names <- mjrw_420_champ %>%
+sails_names <- mjrw_420_champ %>%
   filter(Position %in% have_boats$Position,
          sailor_count == 1) %>%
-  rename(`Boat Name` = `Boat Name/Club`)
-
-have_boats_names
-```
-
-
-```{r include=FALSE}
-sails_names <- have_boats_names %>%
+  rename(`Boat Name` = `Boat Name/Club`) %>%
   select(Position, `Sail Number`, `Boat Name`)
+
+sails_names
 ```
 
-We can now isolate this in a lookup table of sorts to make it possible to join club or boat name information by sail number.
+We can now isolate this in a lookup table of sorts by combining our `Club` and `Boat Name` data for each group. Since _most_ groups do not have a boat name, most of the `Boat Name` observations will be `NA`.
 
 ```{r}
 info_by_sails <- sails_clubs %>%
@@ -182,22 +190,27 @@ info_by_sails <- sails_clubs %>%
 info_by_sails
 ```
 
-## Did it work?
+### Put our boats and sailors back together...
 
-Umm, let's see. If all went according to plan, we should be able to join the `Boat Name` and `Club` to our modified data by `Position` and `Sail Number`.
+Umm, let's see. If all went according to plan, we should be able to join the `Boat Name` and `Club` to our modified data by `Position` and `Sail Number`. We can then get rid of pesky `Boat Name/Club`, and we'll rename `Sailor(s)` to singular.
 
 ```{r}
-mjrw_420_champ <- mjrw_420_champ %>%
+clean_mjrw_420_champ <- mjrw_420_champ %>%
   left_join(info_by_sails) %>%
-  rename(Sailor = `Sailor(s)`)
+  select(-`Boat Name/Club`) %>%
+  rename(Sailor = `Sailor(s)`) %>%
+  select(1:Sailor, `Boat Name`, Club, everything())
 
-mjrw_420_champ %>%
-  select(Position, `Sail Number`, Sailor, Club, `Boat Name`,)
+clean_mjrw_420_champ
 ```
 
 ```{r}
-write_csv(mjrw_420_champ, here::here("data", "clean", "420_champ.csv"))
+write_csv(clean_mjrw_420_champ, here::here("data", "clean", "420_champ.csv"))
 ```
 
+## Other datasets?
+
+Oh yeah, those...
 
 [^1]: Yes, it turns out there _are_ actually two records that have `NA` for `Sailor(s)`, which is weird, bc I'm pretty sure this was a two-handed race.
+[^2]: Note, it is not the name of their club. That data is with the first sailor in cases where there is no boat name.
