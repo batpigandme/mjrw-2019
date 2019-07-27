@@ -25,6 +25,8 @@ library(here)
 
 ## Import and inspect
 
+_Note: After doing and writing all of this up, I found a different data source that completely changed how I would do this the next time!_
+
 Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I'll have to deal with them one by one. However, I'll try to use strategies that are generalizable to the other datasets.
 
 ```{r}
@@ -276,6 +278,19 @@ clean_mjrw_420_green <- mjrw_420_green %>%
   select(-`Boat Name/Club`) %>%
   rename(Sailor = `Sailor(s)`) %>%
   select(1:Sailor, `Boat Name`, Club, everything())
+```
+__Note!__
+Here's where having discovered that other file comes in. What made me want to clean this dataset up was the fact that the names of the clubs weren't at all normalized. Turns out that there was a table of "All Classes" that _just_ listed registrants -- making club-name cleaning easier. I'll read in a lookup table for raw club strings and their correctly-named counterparts. I also corrected the club names in the dataset with _just_ registrant name (no results of the race).
+
+```{r}
+clubs <- read_csv(here::here("data", "clean", "clubs.csv"))
+
+all_classes <- read_csv(here::here("data", "clean", "all_classes.csv"))
+```
+
+```{r}
+clean_mjrw_420_green %>%
+  left_join(all_classes)
 ```
 
 

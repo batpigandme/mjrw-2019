@@ -24,6 +24,8 @@ library(here)
 
 ## Import and inspect
 
+_Note: After doing and writing all of this up, I found a different data source that completely changed how I would do this the next time!_
+
 Because each class (420 Champ, 420 Green, Laser, Opti Champ, and Opti Green) has its own structure (i.e. the column headers are not the same), I'll have to deal with them one by one. However, I'll try to use strategies that are generalizable to the other datasets.
 
 
@@ -453,6 +455,63 @@ clean_mjrw_420_green <- mjrw_420_green %>%
 
 ```
 ## Joining, by = c("Position", "Sail Number")
+```
+__Note!__
+Here's where having discovered that other file comes in. What made me want to clean this dataset up was the fact that the names of the clubs weren't at all normalized. Turns out that there was a table of "All Classes" that _just_ listed registrants -- making club-name cleaning easier. I'll read in a lookup table for raw club strings and their correctly-named counterparts. I also corrected the club names in the dataset with _just_ registrant name (no results of the race).
+
+
+```r
+clubs <- read_csv(here::here("data", "clean", "clubs.csv"))
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   club_raw = col_character(),
+##   club_norm = col_character()
+## )
+```
+
+```r
+all_classes <- read_csv(here::here("data", "clean", "all_classes.csv"))
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   `Sail Number` = col_character(),
+##   Sailor = col_character(),
+##   `Boat Name` = col_character(),
+##   `Club Name` = col_character()
+## )
+```
+
+
+```r
+clean_mjrw_420_green %>%
+  left_join(all_classes)
+```
+
+```
+## Joining, by = c("Sail Number", "Sailor", "Boat Name")
+```
+
+```
+## # A tibble: 70 x 15
+##    rowid Class Position `Sail Number` Sailor `Boat Name` Club  Points R1   
+##    <int> <chr>    <int> <chr>         <chr>  <chr>       <chr>  <dbl> <chr>
+##  1     1 420 …        1 USA 1247      Max W… <NA>        Pleon     24 2    
+##  2     2 420 …        1 USA 1247      Ryan … <NA>        Pleon     24 2    
+##  3     3 420 …        2 USA 8767      Charl… <NA>        MSA       25 11   
+##  4     4 420 …        2 USA 8767      Sam P… <NA>        MSA       25 11   
+##  5     5 420 …        3 USA 8244      Fish … <NA>        Hing…     25 6    
+##  6     6 420 …        3 USA 8244      Cathe… <NA>        Hing…     25 6    
+##  7     7 420 …        4 USA 8240      Will … <NA>        Hing…     26 3    
+##  8     8 420 …        4 USA 8240      Wilso… <NA>        Hing…     26 3    
+##  9     9 420 …        5 USA 8243      Willi… <NA>        Hing…     31 4    
+## 10    10 420 …        5 USA 8243      Charl… <NA>        Hing…     31 4    
+## # … with 60 more rows, and 6 more variables: R2 <chr>, R3 <chr>, R4 <chr>,
+## #   R5 <chr>, sailor_count <int>, `Club Name` <chr>
 ```
 
 
