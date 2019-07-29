@@ -1,3 +1,5 @@
+suppressPackageStartupMessages(library(tidyverse))
+
 mjrw_2019_opti_green <- read_csv(here::here("data", "raw", "mjrw_2019_opti_green.csv"), 
                                 col_types = cols(Position = col_integer()))
 
@@ -54,13 +56,23 @@ sails_names <- mjrw_opti_green %>%
 info_by_sails <- sails_clubs %>%
   left_join(sails_names)
 
-
-
 clean_mjrw_opti_green <- mjrw_opti_green %>%
   left_join(info_by_sails) %>%
   select(-`Boat Name/Club`) %>%
   rename(Sailor = `Sailor(s)`) %>%
-  select(1:Sailor, `Boat Name`, Club, everything())
+  select(1:Sailor, `Boat Name`, Club, everything()) %>%
+  drop_na(Sailor)
 
+
+# add club-name correction
+clubs <- read_csv(here::here("data", "clean", "clubs.csv"))
+
+all_classes <- read_csv(here::here("data", "clean", "all_classes.csv"))
+
+clean_mjrw_opti_green <- clean_mjrw_opti_green %>%
+  left_join(all_classes) %>%
+  select(-Club) %>%
+  select(-sailor_count) %>%
+  select(rowid, Class, Position, `Sail Number`, Sailor, `Boat Name`, `Club Name`, everything())
 
 write_csv(clean_mjrw_opti_green, here::here("data", "clean", "opti_green.csv"))
