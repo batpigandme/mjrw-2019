@@ -1,0 +1,78 @@
+---
+author: Mara Averick
+date: '`r format(Sys.Date())`'
+title: 'MJRW 2019: Results tables'
+output:
+  html_document:
+    keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.retina = 2, dpi = 300)
+```
+
+Marblehead Junior Race Week 2019 - data via: [Regatta Toolbox](https://www.regattatoolbox.com/entryList?eventID=8tDOrn7dbe).
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+## 420 Champ
+
+```{r include=FALSE}
+champ_420 <- read_csv(here::here("data", "clean", "420_champ.csv"))
+```
+
+```{r echo = FALSE}
+champ_420 %>%
+  knitr::kable()
+```
+
+## 420 Green
+
+```{r include=FALSE}
+green_420 <- read_csv(here::here("data", "clean", "420_green.csv"))
+```
+
+
+```{r}
+green_420 %>%
+  knitr::kable()
+```
+
+
+## Laser
+
+```{r include=FALSE}
+laser <- read_csv(here::here("data", "clean", "laser.csv"))
+```
+
+
+```{r}
+laser %>%
+  knitr::kable()
+```
+
+## Opti Champ
+
+```{r include=FALSE}
+opti_champ <- read_csv(here::here("data", "clean", "opti_champ.csv"))
+```
+
+
+```{r}
+opti_champ %>%
+  knitr::kable()
+```
+
+## Opti Green
+
+```{r include=FALSE}
+opti_green <- read_csv(here::here("data", "clean", "opti_green.csv"))
+```
+
+
+```{r}
+opti_green %>%
+  knitr::kable()
+```
