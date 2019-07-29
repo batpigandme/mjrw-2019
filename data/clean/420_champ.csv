@@ -1,77 +1,75 @@
-rowid,Class,Position,Sail Number,Sailor,Boat Name,Club,Points,R1,R2,R3,R4,R5,R6,sailor_count
-1,420 Champ,1,USA 871,Brooks Reed,NA,Hingham Yacht Club,8,1,1,3,1,2,-20,1
-2,420 Champ,1,USA 871,Trent Hesselman,NA,Hingham Yacht Club,8,1,1,3,1,2,-20,2
-3,420 Champ,2,USA 8241,Sawyer Reed,NA,Hingham Yacht Club,20,2,3,5,5,-17,5,1
-4,420 Champ,2,USA 8241,Andrew Engel,NA,Hingham Yacht Club,20,2,3,5,5,-17,5,2
-5,420 Champ,3,USA 1905,James Knowlton,NA,Buck's Harbor Yacht Club,21,5,7,-13,2,5,2,1
-6,420 Champ,3,USA 1905,Sloan Phillips,NA,Buck's Harbor Yacht Club,21,5,7,-13,2,5,2,2
-7,420 Champ,4,USA 2296,Ian McCaffrey,Kiss My Transom,Sandy Bay Yacht Club,22,3,8,1,-9,7,3,1
-8,420 Champ,4,USA 2296,Katy Benagh,Kiss My Transom,Sandy Bay Yacht Club,22,3,8,1,-9,7,3,2
-9,420 Champ,5,USA 6906,Sandy Yale,NA,Portland Yacht Club,28,8,2,11,-12,3,4,1
-10,420 Champ,5,USA 6906,Elsa Dean-Muncie,NA,Portland Yacht Club,28,8,2,11,-12,3,4,2
-11,420 Champ,6,USA 10,Gunnar Nee,NA,Cohasset Yacht Club,28,4,4,6,3,11,-25,1
-12,420 Champ,6,USA 10,Tegan Sturdy,NA,Cohasset Yacht Club,28,4,4,6,3,11,-25,2
-13,420 Champ,7,USA 8497,Porter Bell,NA,Hingham Yacht Club,30,12,-13,2,4,6,6,1
-14,420 Champ,7,USA 8497,Haley Nelson,NA,Hingham Yacht Club,30,12,-13,2,4,6,6,2
-15,420 Champ,8,USA 7273,Ben Trotsky,NA,Sandy Bay Yacht Club,34,6,6,-17,6,8,8,1
-16,420 Champ,8,USA 7273,Max Mercer,NA,Sandy Bay Yacht Club,34,6,6,-17,6,8,8,2
-17,420 Champ,9,USA 8696,Nathan Selian,NA,Harraseeket Yacht Club,44,11,14,4,8,-19,7,1
-18,420 Champ,9,USA 8696,Kique Ruiz,NA,Harraseeket Yacht Club,44,11,14,4,8,-19,7,2
-19,420 Champ,10,USA 781,Ashley Hoguet,NA,Pleon YC,53,15,11,9,7,-30,11,1
-20,420 Champ,10,USA 781,Jessica West,NA,Pleon YC,53,15,11,9,7,-30,11,2
-21,420 Champ,11,USA 6905,Samuel Rooks,NA,Portland Yacht Club,62,-29,16,8,19,18,1,1
-22,420 Champ,11,USA 6905,Danika Hluska,NA,Portland Yacht Club,62,-29,16,8,19,18,1,2
-23,420 Champ,12,USA 8495,Sam Dunn,NA,Hingham Yacht Club,62,-25,10,18,10,12,12,1
-24,420 Champ,12,USA 8495,Trevor Buckeridge,NA,Hingham Yacht Club,62,-25,10,18,10,12,12,2
-25,420 Champ,13,USA 7199,James Leavitt,NA,Portland Yacht CLub,66,7,-21,15,11,20,13,1
-26,420 Champ,13,USA 7199,Maddie Marston,NA,Portland Yacht CLub,66,7,-21,15,11,20,13,2
-27,420 Champ,14,USA 596,Eva Ermlich,NA,Sail Maine,69,10,23,21,14,1,-24,1
-28,420 Champ,14,USA 596,Valyn Mogensen,NA,Sail Maine,69,10,23,21,14,1,-24,2
-29,420 Champ,15,USA 7742,Hailee McSweeney,debie mcsweeney,Agamenticus Yacht Club,69,9,5,-23,22,15,18,1
-30,420 Champ,15,USA 7742,Calvin May,debie mcsweeney,Agamenticus Yacht Club,69,9,5,-23,22,15,18,2
-31,420 Champ,16,USA 7340,Sean Montgomery,NA,Cottage Park Yacht Club,72,19,19,7,17,10,-26,1
-32,420 Champ,16,USA 7340,Emily Rodriguez,NA,Cottage Park Yacht Club,72,19,19,7,17,10,-26,2
-33,420 Champ,17,USA 8720,Tom Rogers,Ellen Rogers,Hingham Yacht Club,73,16,20,10,13,14,-22,1
-34,420 Champ,17,USA 8720,Kate Rogers,Ellen Rogers,Hingham Yacht Club,73,16,20,10,13,14,-22,2
-35,420 Champ,18,USA 6491,Michael Cunniff,NA,Pleon Yacht Club,75,13,-28,16,21,16,9,1
-36,420 Champ,18,USA 6491,Mabel Sliney,NA,Pleon Yacht Club,75,13,-28,16,21,16,9,2
-37,420 Champ,19,USA 7748,John O'Rourke,NA,Agamenticus Yacht Club,78,14,25,19,16,4,-27,1
-38,420 Champ,19,USA 7748,NA,NA,Agamenticus Yacht Club,78,14,25,19,16,4,-27,2
-39,420 Champ,20,USA 744,Gavin Sanborn,NA,SailMaine,83,18,17,22,-30,9,17,1
-40,420 Champ,20,USA 744,JOHN Horangic,NA,SailMaine,83,18,17,22,-30,9,17,2
-41,420 Champ,21,USA 4061,Connor Corcoran,NA,Sail Maine,86,17,12,20,-24,22,15,1
-42,420 Champ,21,USA 4061,Aiden Springer,NA,Sail Maine,86,17,12,20,-24,22,15,2
-43,420 Champ,22,USA 8618,Jacob Selian,NA,Harraseeket Yacht Club,103,23,9,24,26,-33,21,1
-44,420 Champ,22,USA 8618,Jackson Giumarro,NA,Harraseeket Yacht Club,103,23,9,24,26,-33,21,2
-45,420 Champ,23,USA 11,JD Comeau,NA,Cohasset Yacht Club,104,20,18,27,-28,23,16,1
-46,420 Champ,23,USA 11,Charlie Comeau,NA,Cohasset Yacht Club,104,20,18,27,-28,23,16,2
-47,420 Champ,24,USA 1730,Wil Lawton,NA,Cottage Park Yacht Club,112,22,27,25,25,13,-28,1
-48,420 Champ,24,USA 1730,ty calinda,NA,Cottage Park Yacht Club,112,22,27,25,25,13,-28,2
-49,420 Champ,25,USA 1244,Amanda Gary,NA,Pleon,112,28,-31,26,15,24,19,1
-50,420 Champ,25,USA 1244,Alexandra Lacerda Jones,NA,Pleon,112,28,-31,26,15,24,19,2
-51,420 Champ,26,USA 8706,Owen Cooper,NA,MSA,118,21,24,(RET-39),23,27,23,1
-52,420 Champ,26,USA 8706,Andrew Torri,NA,MSA,118,21,24,(RET-39),23,27,23,2
-53,420 Champ,27,USA 6118,Oliver Dunton,NA,SBYC,121,26,30,12,20,-35,33,1
-54,420 Champ,27,USA 6118,Toby Ting,NA,SBYC,121,26,30,12,20,-35,33,2
-55,420 Champ,28,USA 8488,Ella McCarey,Fight Club,Cottage Park Yacht Club,122,32,22,-33,33,25,10,1
-56,420 Champ,28,USA 8488,Nora McCarey,Fight Club,Cottage Park Yacht Club,122,32,22,-33,33,25,10,2
-57,420 Champ,29,USA 5991,Christopher Pandapas,NA,Pleon,128,24,26,14,-35,32,32,1
-58,420 Champ,29,USA 5991,Nick Thibodeau,NA,Pleon,128,24,26,14,-35,32,32,2
-59,420 Champ,30,USA 8764,Jackson Burke,NA,MSA,130,31,15,35,18,-36,31,1
-60,420 Champ,30,USA 8764,Jack Laffy,NA,MSA,130,31,15,35,18,-36,31,2
-61,420 Champ,31,USA 1,Emma Cole,NA,Portland Yacht Club,139,-36,29,30,32,34,14,1
-62,420 Champ,31,USA 1,Kieran Elliott,NA,Portland Yacht Club,139,-36,29,30,32,34,14,2
-63,420 Champ,32,USA 1357,John Cataldo,NA,Cottage park yacht club,144,27,-36,32,29,21,35,1
-64,420 Champ,32,USA 1357,Joseph Cataldo,NA,Cottage park yacht club,144,27,-36,32,29,21,35,2
-65,420 Champ,33,USA 8418,Hunter Kennedy,NA,Cottage Park Yacht Club,148,-35,33,31,27,28,29,1
-66,420 Champ,33,USA 8418,Antea Schlichting,NA,Cottage Park Yacht Club,148,-35,33,31,27,28,29,2
-67,420 Champ,34,USA 2141,Luke Elmer,NA,Pleon,153,30,32,-34,31,26,34,1
-68,420 Champ,34,USA 2141,Whit Tedford,NA,Pleon,153,30,32,-34,31,26,34,2
-69,420 Champ,35,USA 15,Trey penna,NA,AYC,156,DNC-39,-,-,DNC-39,DNC-39,DNC-39,1
-70,420 Champ,35,USA 15,NA,NA,AYC,156,DNC-39,-,-,DNC-39,DNC-39,DNC-39,2
-71,420 Champ,36,USA 8690,Will Romac,NA,Harraseeket Yacht Club,158,34,34,29,-36,31,30,1
-72,420 Champ,36,USA 8690,Daisy Brewer,NA,Harraseeket Yacht Club,158,34,34,29,-36,31,30,2
-73,420 Champ,37,USA 7127,Molly Lane,NA,Pleon,159,33,35,28,34,29,-37,1
-74,420 Champ,37,USA 7127,Lane Kaeyer,NA,Pleon,159,33,35,28,34,29,-37,2
-75,420 Champ,38,USA 8705,Aiden Harrison,NA,Manchester Sailing Association,183,37,37,36,37,(RET-39),36,1
-76,420 Champ,38,USA 8705,Ari Brzezinski,NA,Manchester Sailing Association,183,37,37,36,37,(RET-39),36,2
+rowid,Class,Position,Sail Number,Sailor,Boat Name,Club Name,Points,R1,R2,R3,R4,R5,R6
+1,420 Champ,1,USA 871,Brooks Reed,NA,Hingham Yacht Club,8,1,1,3,1,2,-20
+2,420 Champ,1,USA 871,Trent Hesselman,NA,Hingham Yacht Club,8,1,1,3,1,2,-20
+3,420 Champ,2,USA 8241,Sawyer Reed,NA,Hingham Yacht Club,20,2,3,5,5,-17,5
+4,420 Champ,2,USA 8241,Andrew Engel,NA,Hingham Yacht Club,20,2,3,5,5,-17,5
+5,420 Champ,3,USA 1905,James Knowlton,NA,Buck's Harbor Yacht Club,21,5,7,-13,2,5,2
+6,420 Champ,3,USA 1905,Sloan Phillips,NA,Buck's Harbor Yacht Club,21,5,7,-13,2,5,2
+7,420 Champ,4,USA 2296,Ian McCaffrey,Kiss My Transom,Sandy Bay Yacht Club,22,3,8,1,-9,7,3
+8,420 Champ,4,USA 2296,Katy Benagh,Kiss My Transom,Sandy Bay Yacht Club,22,3,8,1,-9,7,3
+9,420 Champ,5,USA 6906,Sandy Yale,NA,Portland Yacht Club,28,8,2,11,-12,3,4
+10,420 Champ,5,USA 6906,Elsa Dean-Muncie,NA,Portland Yacht Club,28,8,2,11,-12,3,4
+11,420 Champ,6,USA 10,Gunnar Nee,NA,Cohasset Yacht Club,28,4,4,6,3,11,-25
+12,420 Champ,6,USA 10,Tegan Sturdy,NA,Cohasset Yacht Club,28,4,4,6,3,11,-25
+13,420 Champ,7,USA 8497,Porter Bell,NA,Hingham Yacht Club,30,12,-13,2,4,6,6
+14,420 Champ,7,USA 8497,Haley Nelson,NA,Hingham Yacht Club,30,12,-13,2,4,6,6
+15,420 Champ,8,USA 7273,Ben Trotsky,NA,Sandy Bay Yacht Club,34,6,6,-17,6,8,8
+16,420 Champ,8,USA 7273,Max Mercer,NA,Sandy Bay Yacht Club,34,6,6,-17,6,8,8
+17,420 Champ,9,USA 8696,Nathan Selian,NA,Harraseeket Yacht Club,44,11,14,4,8,-19,7
+18,420 Champ,9,USA 8696,Kique Ruiz,NA,Harraseeket Yacht Club,44,11,14,4,8,-19,7
+19,420 Champ,10,USA 781,Ashley Hoguet,NA,Pleon,53,15,11,9,7,-30,11
+20,420 Champ,10,USA 781,Jessica West,NA,Pleon,53,15,11,9,7,-30,11
+21,420 Champ,11,USA 6905,Samuel Rooks,NA,Portland Yacht Club,62,-29,16,8,19,18,1
+22,420 Champ,11,USA 6905,Danika Hluska,NA,Portland Yacht Club,62,-29,16,8,19,18,1
+23,420 Champ,12,USA 8495,Sam Dunn,NA,Hingham Yacht Club,62,-25,10,18,10,12,12
+24,420 Champ,12,USA 8495,Trevor Buckeridge,NA,Hingham Yacht Club,62,-25,10,18,10,12,12
+25,420 Champ,13,USA 7199,James Leavitt,NA,Portland Yacht Club,66,7,-21,15,11,20,13
+26,420 Champ,13,USA 7199,Maddie Marston,NA,Portland Yacht Club,66,7,-21,15,11,20,13
+27,420 Champ,14,USA 596,Eva Ermlich,NA,Sail Maine,69,10,23,21,14,1,-24
+28,420 Champ,14,USA 596,Valyn Mogensen,NA,Sail Maine,69,10,23,21,14,1,-24
+29,420 Champ,15,USA 7742,Hailee McSweeney,debie mcsweeney,Agamenticus Yacht Club,69,9,5,-23,22,15,18
+30,420 Champ,15,USA 7742,Calvin May,debie mcsweeney,Agamenticus Yacht Club,69,9,5,-23,22,15,18
+31,420 Champ,16,USA 7340,Sean Montgomery,NA,Cottage Park Yacht Club,72,19,19,7,17,10,-26
+32,420 Champ,16,USA 7340,Emily Rodriguez,NA,Cottage Park Yacht Club,72,19,19,7,17,10,-26
+33,420 Champ,17,USA 8720,Tom Rogers,Ellen Rogers,Hingham Yacht Club,73,16,20,10,13,14,-22
+34,420 Champ,17,USA 8720,Kate Rogers,Ellen Rogers,Hingham Yacht Club,73,16,20,10,13,14,-22
+35,420 Champ,18,USA 6491,Michael Cunniff,NA,Pleon,75,13,-28,16,21,16,9
+36,420 Champ,18,USA 6491,Mabel Sliney,NA,Pleon,75,13,-28,16,21,16,9
+37,420 Champ,19,USA 7748,John O'Rourke,NA,Agamenticus Yacht Club,78,14,25,19,16,4,-27
+39,420 Champ,20,USA 744,Gavin Sanborn,NA,Sail Maine,83,18,17,22,-30,9,17
+40,420 Champ,20,USA 744,JOHN Horangic,NA,Sail Maine,83,18,17,22,-30,9,17
+41,420 Champ,21,USA 4061,Connor Corcoran,NA,Sail Maine,86,17,12,20,-24,22,15
+42,420 Champ,21,USA 4061,Aiden Springer,NA,Sail Maine,86,17,12,20,-24,22,15
+43,420 Champ,22,USA 8618,Jacob Selian,NA,Harraseeket Yacht Club,103,23,9,24,26,-33,21
+44,420 Champ,22,USA 8618,Jackson Giumarro,NA,Harraseeket Yacht Club,103,23,9,24,26,-33,21
+45,420 Champ,23,USA 11,JD Comeau,NA,Cohasset Yacht Club,104,20,18,27,-28,23,16
+46,420 Champ,23,USA 11,Charlie Comeau,NA,Cohasset Yacht Club,104,20,18,27,-28,23,16
+47,420 Champ,24,USA 1730,Wil Lawton,NA,Cottage Park Yacht Club,112,22,27,25,25,13,-28
+48,420 Champ,24,USA 1730,ty calinda,NA,Cottage Park Yacht Club,112,22,27,25,25,13,-28
+49,420 Champ,25,USA 1244,Amanda Gary,NA,Pleon,112,28,-31,26,15,24,19
+50,420 Champ,25,USA 1244,Alexandra Lacerda Jones,NA,Pleon,112,28,-31,26,15,24,19
+51,420 Champ,26,USA 8706,Owen Cooper,NA,Manchester Sailing Association,118,21,24,(RET-39),23,27,23
+52,420 Champ,26,USA 8706,Andrew Torri,NA,Manchester Sailing Association,118,21,24,(RET-39),23,27,23
+53,420 Champ,27,USA 6118,Oliver Dunton,NA,Sandy Bay Yacht Club,121,26,30,12,20,-35,33
+54,420 Champ,27,USA 6118,Toby Ting,NA,Sandy Bay Yacht Club,121,26,30,12,20,-35,33
+55,420 Champ,28,USA 8488,Ella McCarey,Fight Club,Cottage Park Yacht Club,122,32,22,-33,33,25,10
+56,420 Champ,28,USA 8488,Nora McCarey,Fight Club,Cottage Park Yacht Club,122,32,22,-33,33,25,10
+57,420 Champ,29,USA 5991,Christopher Pandapas,NA,Pleon,128,24,26,14,-35,32,32
+58,420 Champ,29,USA 5991,Nick Thibodeau,NA,Pleon,128,24,26,14,-35,32,32
+59,420 Champ,30,USA 8764,Jackson Burke,NA,Manchester Sailing Association,130,31,15,35,18,-36,31
+60,420 Champ,30,USA 8764,Jack Laffy,NA,Manchester Sailing Association,130,31,15,35,18,-36,31
+61,420 Champ,31,USA 1,Emma Cole,NA,Portland Yacht Club,139,-36,29,30,32,34,14
+62,420 Champ,31,USA 1,Kieran Elliott,NA,Portland Yacht Club,139,-36,29,30,32,34,14
+63,420 Champ,32,USA 1357,John Cataldo,NA,Cottage Park Yacht Club,144,27,-36,32,29,21,35
+64,420 Champ,32,USA 1357,Joseph Cataldo,NA,Cottage Park Yacht Club,144,27,-36,32,29,21,35
+65,420 Champ,33,USA 8418,Hunter Kennedy,NA,Cottage Park Yacht Club,148,-35,33,31,27,28,29
+66,420 Champ,33,USA 8418,Antea Schlichting,NA,Cottage Park Yacht Club,148,-35,33,31,27,28,29
+67,420 Champ,34,USA 2141,Luke Elmer,NA,Pleon,153,30,32,-34,31,26,34
+68,420 Champ,34,USA 2141,Whit Tedford,NA,Pleon,153,30,32,-34,31,26,34
+69,420 Champ,35,USA 15,Trey penna,NA,Annisquam Yacht Club,156,DNC-39,-,-,DNC-39,DNC-39,DNC-39
+71,420 Champ,36,USA 8690,Will Romac,NA,Harraseeket Yacht Club,158,34,34,29,-36,31,30
+72,420 Champ,36,USA 8690,Daisy Brewer,NA,Harraseeket Yacht Club,158,34,34,29,-36,31,30
+73,420 Champ,37,USA 7127,Molly Lane,NA,Pleon,159,33,35,28,34,29,-37
+74,420 Champ,37,USA 7127,Lane Kaeyer,NA,Pleon,159,33,35,28,34,29,-37
+75,420 Champ,38,USA 8705,Aiden Harrison,NA,Manchester Sailing Association,183,37,37,36,37,(RET-39),36
+76,420 Champ,38,USA 8705,Ari Brzezinski,NA,Manchester Sailing Association,183,37,37,36,37,(RET-39),36

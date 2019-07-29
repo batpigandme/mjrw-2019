@@ -1,65 +1,33 @@
-rowid,Class,Position,Sail Number,Sailor,Boat Name,Club,Points,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11,sailor_count
-1,Opti Green,1,USA 10012,DB Murray,NA,Pleon YC,19,3,1,4,2,2,3,1,1,1,-6,1,1
-2,Opti Green,1,USA 10012,NA,NA,Pleon YC,19,3,1,4,2,2,3,1,1,1,-6,1,2
-3,Opti Green,2,USA 16757,Jack Morgan,Jack Attack,Pleon,25,1,2,6,3,3,1,-10,4,2,1,2,1
-4,Opti Green,2,USA 16757,NA,Jack Attack,Pleon,25,1,2,6,3,3,1,-10,4,2,1,2,2
-5,Opti Green,3,USA 13563,Sander Skaane,Zingy,Pleon,25,2,3,2,1,1,4,2,2,-5,3,5,1
-6,Opti Green,3,USA 13563,NA,Zingy,Pleon,25,2,3,2,1,1,4,2,2,-5,3,5,2
-7,Opti Green,4,USA 22263,Stevie Wales,Kiler Wale II,Pleon,64,5,9,5,7,6,7,7,-12,4,10,4,1
-8,Opti Green,4,USA 22263,NA,Kiler Wale II,Pleon,64,5,9,5,7,6,7,7,-12,4,10,4,2
-9,Opti Green,5,USA 18640,Julius Dressel,Ribbet,Pleon YC,70,9,4,3,6,4,10,4,6,-13,13,11,1
-10,Opti Green,5,USA 18640,NA,Ribbet,Pleon YC,70,9,4,3,6,4,10,4,6,-13,13,11,2
-11,Opti Green,6,USA 17396,Lucy Key,NA,Pleon,74,-17,6,7,9,10,9,8,7,11,4,3,1
-12,Opti Green,6,USA 17396,NA,NA,Pleon,74,-17,6,7,9,10,9,8,7,11,4,3,2
-13,Opti Green,7,USA 6917,Callum Eager,Tempest,Pleon,75,4,(DNF-33),DNS-33,8,5,2,9,3,3,2,6,1
-14,Opti Green,7,USA 6917,NA,Tempest,Pleon,75,4,(DNF-33),DNS-33,8,5,2,9,3,3,2,6,2
-15,Opti Green,8,USA 15862,Suleb Noir,NA,Corinthians,77,8,7,15,-17,7,5,5,10,8,5,7,1
-16,Opti Green,8,USA 15862,NA,NA,Corinthians,77,8,7,15,-17,7,5,5,10,8,5,7,2
-17,Opti Green,9,USA 17894,Will Cruikshank,NA,Pleon,92,6,10,-18,15,8,6,3,11,6,15,12,1
-18,Opti Green,9,USA 17894,NA,NA,Pleon,92,6,10,-18,15,8,6,3,11,6,15,12,2
-19,Opti Green,10,USA 4,Joshua holden,NA,SBYC,96,10,5,10,-19,9,12,16,8,7,9,10,1
-20,Opti Green,10,USA 4,NA,NA,SBYC,96,10,5,10,-19,9,12,16,8,7,9,10,2
-21,Opti Green,11,USA 13144,Henry Bertrand,NA,Pleon,113,7,11,8,11,-19,13,15,5,18,16,9,1
-22,Opti Green,11,USA 13144,NA,NA,Pleon,113,7,11,8,11,-19,13,15,5,18,16,9,2
-23,Opti Green,12,USA 12393,Maisie Leland,NA,Annisquam,116,12,16,1,4,12,14,-25,13,10,19,15,1
-24,Opti Green,12,USA 12393,NA,NA,Annisquam,116,12,16,1,4,12,14,-25,13,10,19,15,2
-25,Opti Green,13,USA 20623,Maggie Svencer,NA,Corinthian Yacht Club,119,18,14,9,13,11,8,12,-23,19,7,8,1
-26,Opti Green,13,USA 20623,NA,NA,Corinthian Yacht Club,119,18,14,9,13,11,8,12,-23,19,7,8,2
-27,Opti Green,14,USA 12,Finn Schrafft,NA,Sandy Bay Yacht Club,120,11,13,12,5,(DNF-33),16,6,14,16,8,19,1
-28,Opti Green,14,USA 12,NA,NA,Sandy Bay Yacht Club,120,11,13,12,5,(DNF-33),16,6,14,16,8,19,2
-29,Opti Green,15,USA 21171,David Kane,CYC Opti,CYC,133,13,8,11,16,-17,15,13,16,15,12,14,1
-30,Opti Green,15,USA 21171,NA,CYC Opti,CYC,133,13,8,11,16,-17,15,13,16,15,12,14,2
-31,Opti Green,16,USA 9286,Leo Fenollosa,Time Bandit,Annisquam Yacht Club,170,15,12,13,10,15,11,14,26,25,-31,29,1
-32,Opti Green,16,USA 9286,NA,Time Bandit,Annisquam Yacht Club,170,15,12,13,10,15,11,14,26,25,-31,29,2
-33,Opti Green,17,USA 15854,Sage Wadlow,Lightning Five,CYC,188,20,-29,27,24,24,21,17,19,12,11,13,1
-34,Opti Green,17,USA 15854,NA,Lightning Five,CYC,188,20,-29,27,24,24,21,17,19,12,11,13,2
-35,Opti Green,18,USA 5468,Rory Donegan,Sting,Pleon,188,14,21,22,14,-29,20,11,21,21,20,24,1
-36,Opti Green,18,USA 5468,NA,Sting,Pleon,188,14,21,22,14,-29,20,11,21,21,20,24,2
-37,Opti Green,19,USA 21170,Mia McCoy,NA,CYC,193,24,15,17,18,16,-28,23,20,26,18,16,1
-38,Opti Green,19,USA 21170,NA,NA,CYC,193,24,15,17,18,16,-28,23,20,26,18,16,2
-39,Opti Green,20,USA 15865,Sophia Patterson,Boat 7,Corinthian,202,-29,25,21,22,25,19,22,18,14,14,22,1
-40,Opti Green,20,USA 15865,NA,Boat 7,Corinthian,202,-29,25,21,22,25,19,22,18,14,14,22,2
-41,Opti Green,21,USA 159,Cooper Jobe,NA,MSA,203,19,24,24,26,21,-30,18,28,9,17,17,1
-42,Opti Green,21,USA 159,NA,NA,MSA,203,19,24,24,26,21,-30,18,28,9,17,17,2
-43,Opti Green,22,USA 006,Enzo Peabody,NA,EYC,206,16,22,20,21,18,23,21,-27,24,23,18,1
-44,Opti Green,22,USA 006,NA,NA,EYC,206,16,22,20,21,18,23,21,-27,24,23,18,2
-45,Opti Green,23,USA 19876,Gibson Roland,NA,EYC,207,21,19,19,20,26,25,28,9,17,-29,23,1
-46,Opti Green,23,USA 19876,NA,NA,EYC,207,21,19,19,20,26,25,28,9,17,-29,23,2
-47,Opti Green,24,USA 15866,Kay Wetmore,Boat 9,CYC,215,27,20,16,12,13,22,26,-29,27,27,25,1
-48,Opti Green,24,USA 15866,NA,Boat 9,CYC,215,27,20,16,12,13,22,26,-29,27,27,25,2
-49,Opti Green,25,USA 3,Owen Kearney,NA,Eastern Yacht Club,228,22,27,14,28,22,24,-29,24,23,24,20,1
-50,Opti Green,25,USA 3,NA,NA,Eastern Yacht Club,228,22,27,14,28,22,24,-29,24,23,24,20,2
-51,Opti Green,26,USA 20624,Brennan Waters,CYC Opti,CYC,241,23,17,29,23,14,17,(DNF-33),DNS-33,DNF-33,25,27,1
-52,Opti Green,26,USA 20624,NA,CYC Opti,CYC,241,23,17,29,23,14,17,(DNF-33),DNS-33,DNF-33,25,27,2
-53,Opti Green,27,USA 10297,Kaiya Olson,SeaU l8r,Annisquam Yacht Club,242,26,23,25,-29,23,29,19,22,28,26,21,1
-54,Opti Green,27,USA 10297,NA,SeaU l8r,Annisquam Yacht Club,242,26,23,25,-29,23,29,19,22,28,26,21,2
-55,Opti Green,28,USA 10,Tessa Peterman,NA,Sandy Bay Yacht Club,248,28,28,23,-30,20,27,27,17,22,30,26,1
-56,Opti Green,28,USA 10,NA,NA,Sandy Bay Yacht Club,248,28,28,23,-30,20,27,27,17,22,30,26,2
-57,Opti Green,29,USA 113321,Shane lucas,NA,Pleon,249,31,18,28,25,27,26,(DNF-33),25,20,21,28,1
-58,Opti Green,29,USA 113321,NA,NA,Pleon,249,31,18,28,25,27,26,(DNF-33),25,20,21,28,2
-59,Opti Green,30,USA 9,Finn Wilkinson,NA,Sandy Bay Yacht Club,270,30,(DNF-33),RET-33,RET-33,RET-33,18,20,15,DNF-33,22,DNF-33,1
-60,Opti Green,30,USA 9,NA,NA,Sandy Bay Yacht Club,270,30,(DNF-33),RET-33,RET-33,RET-33,18,20,15,DNF-33,22,DNF-33,2
-61,Opti Green,31,USA 13232,Chase McCoy,NA,CYC,274,25,26,26,27,28,31,24,30,29,28,(DNF-33),1
-62,Opti Green,31,USA 13232,NA,NA,CYC,274,25,26,26,27,28,31,24,30,29,28,(DNF-33),2
-63,Opti Green,32,USA 117396,Hunter Opal,NA,Manchester Sailing Association,330,(DNC-33),DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,1
-64,Opti Green,32,USA 117396,NA,NA,Manchester Sailing Association,330,(DNC-33),DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,2
+rowid,Class,Position,Sail Number,Sailor,Boat Name,Club Name,Points,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,R11
+1,Opti Green,1,USA 10012,DB Murray,NA,Pleon,19,3,1,4,2,2,3,1,1,1,-6,1
+3,Opti Green,2,USA 16757,Jack Morgan,Jack Attack,Pleon,25,1,2,6,3,3,1,-10,4,2,1,2
+5,Opti Green,3,USA 13563,Sander Skaane,Zingy,Pleon,25,2,3,2,1,1,4,2,2,-5,3,5
+7,Opti Green,4,USA 22263,Stevie Wales,Kiler Wale II,Pleon,64,5,9,5,7,6,7,7,-12,4,10,4
+9,Opti Green,5,USA 18640,Julius Dressel,Ribbet,Pleon,70,9,4,3,6,4,10,4,6,-13,13,11
+11,Opti Green,6,USA 17396,Lucy Key,NA,Pleon,74,-17,6,7,9,10,9,8,7,11,4,3
+13,Opti Green,7,USA 6917,Callum Eager,Tempest,Pleon,75,4,(DNF-33),DNS-33,8,5,2,9,3,3,2,6
+15,Opti Green,8,USA 15862,Suleb Noir,NA,Corinthian Yacht Club,77,8,7,15,-17,7,5,5,10,8,5,7
+17,Opti Green,9,USA 17894,Will Cruikshank,NA,Pleon,92,6,10,-18,15,8,6,3,11,6,15,12
+19,Opti Green,10,USA 4,Joshua holden,NA,Sandy Bay Yacht Club,96,10,5,10,-19,9,12,16,8,7,9,10
+21,Opti Green,11,USA 13144,Henry Bertrand,NA,Pleon,113,7,11,8,11,-19,13,15,5,18,16,9
+23,Opti Green,12,USA 12393,Maisie Leland,NA,Annisquam Yacht Club,116,12,16,1,4,12,14,-25,13,10,19,15
+25,Opti Green,13,USA 20623,Maggie Svencer,NA,Corinthian Yacht Club,119,18,14,9,13,11,8,12,-23,19,7,8
+27,Opti Green,14,USA 12,Finn Schrafft,NA,Cohasset Yacht Club,120,11,13,12,5,(DNF-33),16,6,14,16,8,19
+29,Opti Green,15,USA 21171,David Kane,CYC Opti,Corinthian Yacht Club,133,13,8,11,16,-17,15,13,16,15,12,14
+31,Opti Green,16,USA 9286,Leo Fenollosa,Time Bandit,Annisquam Yacht Club,170,15,12,13,10,15,11,14,26,25,-31,29
+33,Opti Green,17,USA 15854,Sage Wadlow,Lightning Five,Corinthian Yacht Club,188,20,-29,27,24,24,21,17,19,12,11,13
+35,Opti Green,18,USA 5468,Rory Donegan,Sting,Pleon,188,14,21,22,14,-29,20,11,21,21,20,24
+37,Opti Green,19,USA 21170,Mia McCoy,NA,Corinthian Yacht Club,193,24,15,17,18,16,-28,23,20,26,18,16
+39,Opti Green,20,USA 15865,Sophia Patterson,Boat 7,Corinthian Yacht Club,202,-29,25,21,22,25,19,22,18,14,14,22
+41,Opti Green,21,USA 159,Cooper Jobe,NA,Manchester Sailing Association,203,19,24,24,26,21,-30,18,28,9,17,17
+43,Opti Green,22,USA 006,Enzo Peabody,NA,Eastern Yacht Club,206,16,22,20,21,18,23,21,-27,24,23,18
+45,Opti Green,23,USA 19876,Gibson Roland,NA,Eastern Yacht Club,207,21,19,19,20,26,25,28,9,17,-29,23
+47,Opti Green,24,USA 15866,Kay Wetmore,Boat 9,Corinthian Yacht Club,215,27,20,16,12,13,22,26,-29,27,27,25
+49,Opti Green,25,USA 3,Owen Kearney,NA,Sail Salem,228,22,27,14,28,22,24,-29,24,23,24,20
+51,Opti Green,26,USA 20624,Brennan Waters,CYC Opti,Corinthian Yacht Club,241,23,17,29,23,14,17,(DNF-33),DNS-33,DNF-33,25,27
+53,Opti Green,27,USA 10297,Kaiya Olson,SeaU l8r,Annisquam Yacht Club,242,26,23,25,-29,23,29,19,22,28,26,21
+55,Opti Green,28,USA 10,Tessa Peterman,NA,Cohasset Yacht Club,248,28,28,23,-30,20,27,27,17,22,30,26
+57,Opti Green,29,USA 113321,Shane lucas,NA,Pleon,249,31,18,28,25,27,26,(DNF-33),25,20,21,28
+59,Opti Green,30,USA 9,Finn Wilkinson,NA,Sandy Bay Yacht Club,270,30,(DNF-33),RET-33,RET-33,RET-33,18,20,15,DNF-33,22,DNF-33
+61,Opti Green,31,USA 13232,Chase McCoy,NA,Corinthian Yacht Club,274,25,26,26,27,28,31,24,30,29,28,(DNF-33)
+63,Opti Green,32,USA 117396,Hunter Opal,NA,Manchester Sailing Association,330,(DNC-33),DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33,DNC-33
